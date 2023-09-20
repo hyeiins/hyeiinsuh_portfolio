@@ -1,0 +1,27 @@
+name: Deploy to github pages
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  gh-pages-deploy:
+    name: Deploying to gh-pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js for use with actions
+        uses: actions/setup-node@v3
+        with:
+          version:  18.x
+
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Clean install dependencies
+        run: npm ci
+
+      - name: Run deploy script
+        run: |
+          git config user.name "hyeiins" && git config user.email "hyeiinsuh92@gmail.com"
+          npm run deploy
