@@ -8,15 +8,15 @@ defineProps({
 </script>
 
 <template>
-  <div>
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      Seemlessly switch between
-    </h3>
-    <p>understanding user needs,</p>
-    <p>speaking designer lingo,</p>
-    <p>and chatting it up in developer code</p>
-  </div>
+    <div>
+        <h1 class="green">UIUX Designer</h1>
+        <h3>
+            Seemlessly switch between
+        </h3>
+        <p>understanding user needs,</p>
+        <p>speaking designer lingo,</p>
+        <p>and chatting it up in developer code</p>
+    </div>
 </template>
 
 <style scoped>
