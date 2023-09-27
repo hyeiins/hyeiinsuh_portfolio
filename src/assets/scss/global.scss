@@ -1,6 +1,9 @@
-@forward "variables";
+@import "variables";
+@import "font";
 
+/* styles*/
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: blue;
+  font-family: 'Infinity', Tahoma, Geneva, Verdana, sans-serif;
+  // color: $color-primary;
 }
+

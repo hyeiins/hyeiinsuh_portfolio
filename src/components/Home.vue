@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="greetings">
+  <div>
     <h1 class="green">{{ msg }}</h1>
     <h3>
       Seemlessly switch between
@@ -20,9 +20,11 @@ defineProps({
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
+/* h1 {
+  font-family: infinity;
+  font-weight: 700;
+  font-size: 5.5rem;
+  line-height: 120%;
   position: relative;
   top: -10px;
 }
@@ -41,5 +43,5 @@ h3 {
   .greetings h3 {
     text-align: left;
   }
-}
+} */
 </style>
