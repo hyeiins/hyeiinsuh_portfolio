@@ -48,6 +48,7 @@ h1 {
     border-radius: 258px;
     background: #241E6C;
     filter: blur(100px);
+    transform: translateZ(0)
 }
 
 .circle2 {
@@ -62,6 +63,8 @@ h1 {
     border-radius: 258px;
     background: rgba(70, 123, 139, 0.50);
     filter: blur(100px);
+    transform: translateZ(0)
+
 }
 
 
