@@ -2,5 +2,31 @@
 /* font face */
 @font-face {
     font-family: "Infinity";
-    src: local("Infinity"), url("/fonts/made_infinity/MADEINFINITYPersonalUse-Regular.otf") format("woff2");
+    src: local("Infinity"), url("/fonts/made_infinity/MADEINFINITYPersonalUse-Thin.otf") format("woff2");
+    font-weight: 100;
 }
+
+@font-face {
+    font-family: "Infinity";
+    src: local("Infinity"), url("/fonts/made_infinity/MADEINFINITYPersonalUse-Light.otf") format("woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Infinity";
+    src: local("Infinity"), url("/fonts/made_infinity/MADEINFINITYPersonalUse-Regular.otf") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Infinity";
+    src: local("Infinity"), url("/fonts/made_infinity/MADEINFINITYPersonalUse-Medium.otf") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Infinity";
+    src: local("Infinity"), url("/fonts/made_infinity/MADEINFINITYPersonalUse-Black.otf") format("woff2");
+    font-weight: 600;
+}
+

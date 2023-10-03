@@ -23,7 +23,7 @@
 			<v-row
 				no-gutters
 			>
-				<v-col>
+				<v-col md="4">
 					<v-sheet class="pa-2 ma-2 footer-contents">
 						<div class="pb-4">
 						<img class="mr-5" src="./../../assets/logo.svg" height="30"/>
@@ -37,13 +37,14 @@
 					
 				</v-col>
 
-				<v-col>
+				<v-col md="4">
 					<v-sheet class="pa-2 ma-2 footer-contents">
 						<v-list :items="menus" class="pl-10 footer-contents"></v-list>
 					</v-sheet>
 					
 				</v-col>
-				<v-col>
+				
+				<v-col md="4">
 					<v-sheet class="pa-2 ma-2 footer-contents"> 
 						<div class="pb-10">
 						<a href="mailto:hyeiinsuh124@gmail.com">hyeiinsuh124@gmail.com</a>
