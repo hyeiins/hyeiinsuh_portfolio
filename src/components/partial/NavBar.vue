@@ -2,7 +2,7 @@
 	export default {
 		data() {
 			return {
-				overlay: false,
+				dialog: false,
 				menuItems: [
 					{title: "About", path: "/about"},
 					{title: "Project", path: "/"},
@@ -17,21 +17,31 @@
 <template>
 	<nav>
         <!-- mobile full screen nav -->
-		<v-overlay
-          	v-model="overlay"
-			scrim="white"
-          	class="align-center justify-center h-100 d-sm-none"
+		<v-dialog
+          	v-model="dialog"
+			fullscreen
+          	class="d-sm-none"
 			close-on-content-click
 			absolute="true"
+			:scrim="false"
 		>
-            <v-btn class="btn-close"><v-icon @click="overlay = false">$close</v-icon></v-btn>
+			<v-card class="mobile-nav"> 
+				<v-toolbar color="#141414">
+					<v-spacer></v-spacer>
+					<v-btn class="btn-close"><v-icon @click="dialog = false">$close</v-icon></v-btn>
+				</v-toolbar>
+				<v-card-text class="justify-center align-center">
+					<v-list class="menu-list">
+						<v-list-item class="text-center" v-for="item in menuItems" :key="item.title">
+							<router-link :to="item.path">{{ item.title }}</router-link>
+						</v-list-item>
+					</v-list>
+				</v-card-text>
+			</v-card>
+           
 
-			<v-list class="menu-list">
-				<v-list-item class="text-center" v-for="item in menuItems" :key="item.title">
-					<router-link :to="item.path">{{ item.title }}</router-link>
-				</v-list-item>
-            </v-list>
-        </v-overlay>
+			
+        </v-dialog>
 
         <!-- nav menu -->
         <v-toolbar color="transparent">
@@ -57,7 +67,7 @@
 
             <!-- menu icon visible in small and lower screen -->
             <span class="d-sm-none">
-                <v-app-bar-nav-icon @click="overlay = !overlay">
+                <v-app-bar-nav-icon @click="dialog = !dialog">
                     <v-icon>$menu</v-icon>
                 </v-app-bar-nav-icon>
             </span>
@@ -67,15 +77,11 @@
 </template>
   
 <style scoped lang="scss">
-.v-overlay-container {
-	.v-overlay {
-		background: white;
-		.btn-close {
-			box-shadow: none;
-			position: fixed;
-			top: 300px;
-			left: 20px;
-		}
+.mobile-nav {
+	background-color: #141414;
+
+	.menu-list {
+		background-color: #141414;
 	}
 }
 
