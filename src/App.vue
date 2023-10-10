@@ -15,9 +15,9 @@ import CustomFooter from "./components/partial/CustomFooter.vue";
 				<router-view />
 			</section>
 		</main>
-		<footer>
+		<!-- <footer>
 			<custom-footer></custom-footer>
-		</footer>
+		</footer> -->
 	</v-app>
 </template>
 
@@ -25,7 +25,7 @@ import CustomFooter from "./components/partial/CustomFooter.vue";
 @import "./assets/scss/global.scss";
 //360px
 body{
-	padding: 5%;
+
 	background-color: #141414;
 }
 .app-st {
@@ -34,7 +34,7 @@ body{
 	}
 @media (min-width: 1024px) {
 	body {
-		padding: 20px 200px;
+		
 		background-color: #141414;
 		color: white;
 	}

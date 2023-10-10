@@ -14,8 +14,6 @@
 </script>
 
 <template>
-  	<!-- <v-footer class="d-flex flex-column c-footer"> -->
-
 	<div>
 		<v-container
 			class="ma-0 c-footer"
@@ -37,7 +35,7 @@
 					
 				</v-col>
 
-				<v-col md="4">
+				<v-col md="4" class="d-none d-sm-block">
 					<v-sheet class="pa-2 ma-2 footer-contents">
 						<v-list :items="menus" class="pl-10 footer-contents"></v-list>
 					</v-sheet>

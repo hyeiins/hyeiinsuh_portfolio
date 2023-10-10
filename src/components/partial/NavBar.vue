@@ -22,7 +22,6 @@
 			fullscreen
           	class="d-sm-none"
 			close-on-content-click
-			absolute="true"
 			:scrim="false"
 		>
 			<v-card class="mobile-nav"> 

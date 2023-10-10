@@ -1,8 +1,13 @@
 <script>
+import ProjectList from "./partial/ProjectList.vue";
+
 export default {
+    components: {
+        ProjectList
+    },  
     data() {
         return {
-            msgDynamic: ['understanding user needs,', 'Chatting it up in Developer Code', 'Speacking Designer Lingo'],
+            msgDynamic: ['understanding user needs,', 'chatting it up in Developer Code', 'speaking Designer Lingo'],
         }
     },
     mounted() {
@@ -22,18 +27,25 @@ export default {
 <template>
     <div>
         <h1>HYEI-IN,<br> UIUX Designer<br> with a Frontend Flair</h1>
-        <div class="msg-strength">
-            <p class="msg-intro">
-                Seemlessly switch between
-            </p>
-            <Transition name="slide-fade" mode="out-in">
-                <p class="msg-dynamic" :key="msgDynamic[0]">{{ msgDynamic[0] }}</p>
-            </Transition>
-        </div>
+            <div class="msg-strength">
+                <p class="msg-intro">
+                    Seemlessly switch between
+                </p>
+                <Transition name="slide-fade" mode="out-in">
+                    <p class="msg-dynamic" :key="msgDynamic[0]">{{ msgDynamic[0] }}</p>
+                </Transition>
+            </div>
+
             <div class="bg-circles">
                 <div class="circle1"></div>
                 <div class="circle2"></div>
             </div>
+            
+            <div>
+                <h2>Project</h2>
+                <project-list></project-list>
+            </div>
+
     </div>
 </template>
 
@@ -84,6 +96,7 @@ h1 {
   opacity: 0;
 }
 
+// bg
 .circle1 {
     overflow: hidden;
     position: absolute;
@@ -113,6 +126,11 @@ h1 {
     filter: blur(100px);
     transform: translateZ(0);
 
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 @media (min-width: 1024px) {

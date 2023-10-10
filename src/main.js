@@ -7,6 +7,7 @@ import "vuetify/styles";
 import { createVuetify } from "vuetify"
 import * as components from "vuetify/components"
 import * as directives from "vuetify/directives"
+
 // Vuetify icons
 import { aliases, fa } from 'vuetify/iconsets/fa'
 import {mdi} from "vuetify/lib/iconsets/mdi" 
@@ -27,5 +28,6 @@ const vuetify = createVuetify({
         }
     }
 });
+
 
 createApp(App).use(router).use(vuetify).mount('#app')

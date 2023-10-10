@@ -7,7 +7,13 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: "/hyeiinsuh_portfolio/",
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['swiper', 'swiper-container', 'swiper-slide'].includes(tag),
+        }
+      }
+    }),
   ],
   resolve: {
     alias: {
