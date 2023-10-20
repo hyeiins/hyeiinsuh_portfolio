@@ -3,6 +3,7 @@
 
     // import function to register Swiper custom elements
     import { register } from 'swiper/element/bundle';
+
     // register Swiper custom elements
     register();
 
@@ -15,6 +16,7 @@
     // import required modules
     import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
+    
     export default {
         components: {
             Swiper,
@@ -38,8 +40,8 @@
         },  
         setup() {
             return {
-            modules: [EffectCoverflow, Pagination, Navigation],
-        };
+                modules: [EffectCoverflow, Pagination, Navigation],
+            };
         
         },
     };
@@ -47,40 +49,37 @@
 
 <template>
     <swiper-container
+        class="d-md-none"
         :effect="'coverflow'"
         :grabCursor="true"
         :centeredSlides="true"
-        :slidesPerView="'1.4'"
+        :slidesPerView="'auto'"
         :coverflowEffect="{
-            rotate: 50,
-            stretch: 0,
+            rotate: 40,
+            stretch: 10,
             depth: 100,
             modifier: 1,
-            slideShadows: true,
-        }" 
-        :space-between="-100"
-        :pagination="true"
+            slideShadows: false,
+        }"
+        :spaceBetween="-60"
+        :pagination="{
+            clickable: true,
+        }"
         :modules="modules"
-        class="mySwiper"
-        :loop="true"
-
+        id="mySlider"
     >
-        <swiper-slide> 
+        <swiper-slide class="slides"> 
             <v-card
-                max-width="500"
                 color="#141414"
             >
                 <v-img
                 class="align-end text-white"
-                height="200"
                 :src="imageSrc"
                 cover
-                >
-                    <v-card-title>Youtube Music Renewal</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                   08.07.2023 - 10.04.2023
+                /> 
+                <v-card-title>Youtube Music Renewal</v-card-title>
+                <v-card-subtitle>
+                08.07.2023 - 10.04.2023
                 </v-card-subtitle>
 
                 <v-card-text>
@@ -88,7 +87,80 @@
                 </v-card-text>
 
                 <div class="px-4">
-                    <v-chip-group v-model="selection">
+                    <v-chip-group>
+                        <v-chip>UI/UX</v-chip>
+
+                        <v-chip>Renewal</v-chip>
+
+                        <v-chip>Group Project</v-chip>
+                    </v-chip-group>
+                </div>
+
+                <v-card-actions>
+                    <v-btn color="orange" href="https://www.behance.net/gallery/181651261/YOUTUBE-MUSIC-RENEWAL-" target="_blank">
+                        Read More
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </swiper-slide>
+        <swiper-slide class="slides"> 
+            <v-card
+                color="#141414"
+            >
+                <v-img
+                class="align-end text-white banner-img"
+                
+                :src="imageSrc2"
+                cover
+                >    
+                </v-img>
+                <v-card-title>AR tourism app - ITDA</v-card-title>
+                <v-card-subtitle>
+                07.14.2023 - 08.14.2023
+                </v-card-subtitle>
+
+                <v-card-text>
+                    <div>50% Faster in Exploring music, and positive response about personalized recommendations and 4.2 Satisfaction after renewal </div>
+                </v-card-text>
+
+                <div class="px-4">
+                    <v-chip-group>
+                        <v-chip>UI/UX</v-chip>
+
+                        <v-chip>New</v-chip>
+
+                        <v-chip>Personnal Project</v-chip>
+                    </v-chip-group>
+                </div>
+
+                <v-card-actions>
+                    <v-btn color="orange">
+                        Read More
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </swiper-slide>
+        <swiper-slide class="slides"> 
+            <v-card
+                color="#141414"
+                
+            >
+                <v-img
+                class="align-end text-white banner-img"
+                :src="imageSrc3"
+                cover
+                /> 
+                <v-card-title>Youtube Music Renewal</v-card-title>
+                <v-card-subtitle>
+                08.07.2023 - 10.04.2023
+                </v-card-subtitle>
+
+                <v-card-text>
+                    <div>50% Faster in Exploring music, and positive response about personalized recommendations and 4.2 Satisfaction after renewal</div>
+                </v-card-text>
+
+                <div class="px-4">
+                    <v-chip-group>
                         <v-chip>UI/UX</v-chip>
 
                         <v-chip>Renewal</v-chip>
@@ -104,107 +176,43 @@
                 </v-card-actions>
             </v-card>
         </swiper-slide>
-        <swiper-slide> 
-            <v-card
-                max-width="500"
-                color="#141414"
-            >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                :src="imageSrc2"
-                cover
-                >
-                    <v-card-title>AR tourism app - ITDA</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                   07.14.2023 - 08.14.2023
-                </v-card-subtitle>
-
-                <v-card-text>
-                    <div>New concept project UX study to create AR tourism app to give users a meaningful, enjoyable and more vivid experience.</div>
-                </v-card-text>
-
-                <div class="px-4">
-                    <v-chip-group v-model="selection">
-                        <v-chip>UI/UX</v-chip>
-
-                        <v-chip>New</v-chip>
-
-                        <v-chip>Personnal Project</v-chip>
-                    </v-chip-group>
-                </div>
-
-                <v-card-actions>
-                    <v-btn color="orange">
-                        Read More
-                    </v-btn>
-                </v-card-actions>
-            </v-card>
-        </swiper-slide>
-        <swiper-slide> 
-            <v-card
-                max-width="500"
-                color="#141414"
-                class="card-coming-soon"
-            >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                :src="imageSrc3"
-                cover
-                >
-                    <v-card-title>Next Concept App</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                    07.14.2023 - 
-                </v-card-subtitle>
-
-                <v-card-text>
-                    <div>COMING SOON</div>
-                </v-card-text>
-
-                <div class="px-4">
-                    <v-chip-group>
-                        <v-chip>UI/UX</v-chip>
-                        <v-chip>Mobile App</v-chip>
-                        <v-chip>New</v-chip>
-                        <v-chip>Personnal Project</v-chip>
-                    </v-chip-group>
-                </div>
-
-                <v-card-actions>
-                    <v-btn color="orange">
-                        Read More
-                    </v-btn>
-                </v-card-actions>
-            </v-card>
-        </swiper-slide>
     </swiper-container>
 </template>
 
-<style>
-    .swiper-slide-prev, .swiper-slide-next {
+<style lang="scss" scoped>
+.slides {
+    width: 310px;
+}
+
+.swiper-slide-visible{
+    margin: auto;
+    .v-card {
         opacity: 0.2;
-        .v-card {
-            width: 300px;
-            height: 380px;
-            margin-top: 20px;
+        height: 520px;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+
+        .v-img {
+            width: 310px;
+            height: 244px;
         }
     }
+}
 
-    .swiper-slide-active {
-        .v-card {
-            min-width: 300px;
-            min-height: 400px;
-        }
-    }
+.swiper-slide-active {
+    .v-card {
+        opacity: 1;
 
-    .card-coming-soon {
-        
-    }
-
+        height: 560px;
+        -webkit-filter: none; /* Safari 6.0 - 9.0 */
+        filter: none;
     
+    }
+}
+
+#mySlider {
+    .swiper-pagination-bullet {
+        background-color: red !important;
+    }
+}
 </style>

@@ -27,7 +27,7 @@ export default {
 <template>
     <div>
         <h1>HYEI-IN,<br> UIUX Designer<br> with a Frontend Flair</h1>
-            <div class="msg-strength">
+            <div class="section-intro">
                 <p class="msg-intro">
                     Seemlessly switch between
                 </p>
@@ -41,7 +41,7 @@ export default {
                 <div class="circle2"></div>
             </div>
             
-            <div>
+            <div class="section-project">
                 <h2>Project</h2>
                 <project-list></project-list>
             </div>
@@ -62,9 +62,9 @@ h1 {
     z-index: 200;
 }
 
-.msg-strength{
+.section-intro{
     text-align: center;
-    margin-bottom: 300px;
+    margin-bottom: 400px;
     .msg-intro {
         font-size: 1rem;
         margin-bottom: 1%;
@@ -79,6 +79,10 @@ h1 {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+}
+
+.section-project {
+    margin-bottom: 300px;
 }
 
 // animation
@@ -115,7 +119,7 @@ h1 {
 .circle2 {
     overflow: hidden;
     position: absolute;
-    top: 20%;
+    top: 15%;
     right: 0px;
     z-index: 2;
     width: 240px;
@@ -133,7 +137,53 @@ h2 {
     margin-bottom: 50px;
 }
 
+@media (min-width: 600px) {
+    @-webkit-keyframes bgEffect {
+        0%   {background: rgba(36, 30, 108, 0.50); width:20rem; height:20rem;}
+        25%  {background: rgba(70, 123, 139, 0.50); width:22rem; height:22rem;}
+        50%  {background: rgba(70, 123, 139, 0.50); width:19rem; height:19rem;}
+        75%  {background: rgba(36, 30, 108, 0.50); width:23rem; height:23rem;}
+        100% {background: rgba(70, 123, 139, 0.50); width:21rem; height:21rem;}
+    }
+
+    @-webkit-keyframes bgEffect2 {
+        0%    {background: rgba(139, 70, 103, 0.50); width:22rem; height:22rem;}
+        25%    {background: rgba(70, 123, 139, 0.50); width:20rem; height:20rem;}
+        50% {background: rgba(139, 70, 103, 0.50); width:23rem; height:23rem;}
+        75% {background: rgba(70, 123, 139, 0.50); width:19rem; height:19rem;}  
+        100% {background: rgba(139, 70, 103, 0.50); width:21rem; height:21rem;}
+    }
+
+    .circle1 {
+        top: 10%;
+        left: 10%;
+        width: 22rem;
+        height: 22rem;
+        animation-name: bgEffect;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+    .circle2 {
+        top: 10%;
+        right: 10%;
+        width: 24rem;
+        height: 24rem;
+        animation-name: bgEffect2;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+    }
+}
+
 @media (min-width: 1024px) {
+    .circle1 {
+        display: none;
+ 
+    }
+
+    .circle2 {
+        display: none;
+    }
+
     h1 {
         font-size: 5.5rem;
         line-height: 120%;

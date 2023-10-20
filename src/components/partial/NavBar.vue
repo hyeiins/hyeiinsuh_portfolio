@@ -15,7 +15,7 @@
 </script>
 
 <template>
-	<nav>
+	<v-container>
         <!-- mobile full screen nav -->
 		<v-dialog
           	v-model="dialog"
@@ -72,7 +72,7 @@
             </span>
             
         </v-toolbar>
-    </nav>
+    </v-container>
 </template>
   
 <style scoped lang="scss">
