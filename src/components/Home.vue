@@ -7,13 +7,22 @@ export default {
     },  
     data() {
         return {
-            msgDynamic: ['understanding user needs,', 'chatting it up in Developer Code', 'speaking Designer Lingo'],
+            msgDynamic: ['understanding user needs,', 'chatting it up in Developer Code', 'speaking Designer lingo'],
+            texthtml: 'HYEI-IN, \n  UIUX Designer  \n  with a Frontend Flair'
         }
     },
     mounted() {
         window.setInterval(() => {
             this.pollMsg();
         }, 3000);
+
+        const svg = document.getElementById('svg');
+        const clip = document.getElementById('clip');
+
+        document.addEventListener('mousemove', e => {
+            svg.style.transform = `translate(${e.clientX-200}px, ${e.clientY-200}px)`;
+            clip.style.transform = `translate(${e.clientX-850}px, ${e.clientY-540}px)`;
+        })
     },
     methods: {
         pollMsg() {
@@ -26,26 +35,38 @@ export default {
 
 <template>
     <div>
-        <h1>HYEI-IN,<br> UIUX Designer<br> with a Frontend Flair</h1>
-            <div class="section-intro">
-                <p class="msg-intro">
-                    Seemlessly switch between
-                </p>
-                <Transition name="slide-fade" mode="out-in">
-                    <p class="msg-dynamic" :key="msgDynamic[0]">{{ msgDynamic[0] }}</p>
-                </Transition>
-            </div>
+        <svg height="300" width="300">
+            <defs>
+                <clipPath id="clip">
+                <circle cx="150" cy="150" r="140" stroke="black" stroke-width="3" fill="black" />
+                </clipPath>
+            </defs>
+        </svg>
+        <svg height="300" width="300" id="svg">
+            <circle cx="150" cy="150" r="140" stroke="black" stroke-width="3" fill="aqua" />
+        </svg>
 
-            <div class="bg-circles">
-                <div class="circle1"></div>
-                <div class="circle2"></div>
-            </div>
+       
+            <h1 class="txt-heading" :data-text="texthtml">{{ texthtml }}</h1>
+       
+        <div class="section-intro d-lg-flex">
+            <p class="msg-intro">
+                Seemlessly switch between
+            </p>
+            <Transition name="slide-fade" mode="out-in">
+                <p class="msg-dynamic" :key="msgDynamic[0]">{{ msgDynamic[0] }}</p>
+            </Transition>
+        </div>
+
+        <div class="bg-circles">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+        </div>
             
-            <div class="section-project">
-                <h2>Project</h2>
-                <project-list></project-list>
-            </div>
-
+        <div class="section-project">
+            <h2>Project</h2>
+            <project-list></project-list>
+        </div>
     </div>
 </template>
 
@@ -62,9 +83,13 @@ h1 {
     z-index: 200;
 }
 
+.txt-heading {
+    white-space: pre-wrap;
+}
 .section-intro{
     text-align: center;
     margin-bottom: 400px;
+    
     .msg-intro {
         font-size: 1rem;
         margin-bottom: 1%;
@@ -116,6 +141,7 @@ h1 {
     /* safari doesn't work with some properties without transform: translateZ(0) */
     transform: translateZ(0);
 }
+
 .circle2 {
     overflow: hidden;
     position: absolute;
@@ -177,18 +203,55 @@ h2 {
 @media (min-width: 1024px) {
     .circle1 {
         display: none;
- 
     }
 
     .circle2 {
         display: none;
     }
 
+
     h1 {
         font-size: 5.5rem;
         line-height: 120%;
         position: relative;
-        top: -10px;
+        top: 0px;
     }
+
+    h1::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        color: red;
+        clip-path: url(#clip);
+        z-index: 5;
+        justify-content: center;    
+    }
+
+    svg {
+        position: fixed;
+        top: -50;
+        left: -50;
+    }
+
+    #svg {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-intro {
+        justify-content: center;
+
+        .msg-intro {
+            font-size: 24px;
+            margin-right: 1%;
+        }
+
+        .msg-dynamic {
+            font-size: 24px;
+        } 
+    }
+
+
 }
 </style>
