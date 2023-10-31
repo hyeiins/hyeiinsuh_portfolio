@@ -8,46 +8,57 @@ export default {
     data() {
         return {
             msgDynamic: ['understanding user needs,', 'chatting it up in Developer Code', 'speaking Designer lingo'],
-            texthtml: 'HYEI-IN, \n  UIUX Designer  \n  with a Frontend Flair'
+            mouseX: 0,
+            mouseY: 0,
+            xp: 0,
+            yp: 0,
+            isFaded: false,
         }
+    },
+    computed: {
+        circleStyle() {
+        return {
+            left: this.xp + "px",
+            top: this.yp + "px",
+        };
+        },
     },
     mounted() {
         window.setInterval(() => {
             this.pollMsg();
         }, 3000);
-
-        const svg = document.getElementById('svg');
-        const clip = document.getElementById('clip');
-
-        document.addEventListener('mousemove', e => {
-            svg.style.transform = `translate(${e.clientX-200}px, ${e.clientY-200}px)`;
-            clip.style.transform = `translate(${e.clientX-850}px, ${e.clientY-540}px)`;
-        })
+    },
+    mounted() {
+        document.addEventListener("mousemove", this.handleMouseMove);
     },
     methods: {
         pollMsg() {
             const first = this.msgDynamic.shift();
             this.msgDynamic = this.msgDynamic.concat(first);
-        }
+        },
+        handleMouseMove(e) {
+            this.mouseX = e.pageX - 80;
+            this.mouseY = e.pageY - 80;
+
+            this.xp += (this.mouseX - this.xp) / 6;
+            this.yp += (this.mouseY - this.yp) / 6;
+        },
+        mouseEnter() {
+            this.isFaded = false;
+            console.log(this.isFaded)
+        },
+        mouseLeave() {
+            this.isFaded = true;
+            console.log(this.isFaded)
+        },
     }
 }
 </script>
 
 <template>
     <div>
-        <svg height="300" width="300">
-            <defs>
-                <clipPath id="clip">
-                <circle cx="150" cy="150" r="140" stroke="black" stroke-width="3" fill="black" />
-                </clipPath>
-            </defs>
-        </svg>
-        <svg height="300" width="300" id="svg">
-            <circle cx="150" cy="150" r="140" stroke="black" stroke-width="3" fill="aqua" />
-        </svg>
-
-       
-            <h1 class="txt-heading" :data-text="texthtml">{{ texthtml }}</h1>
+        <div class="circle fade-out-element" :style="circleStyle"  :class="{ 'faded': isFaded }"></div>
+        <h1  @mousemove="handleMouseMove" @mouseleave="mouseLeave" @mouseenter="mouseEnter" class="txt-heading">HYEI-IN, <br> UIUX Designer <br> with a Frontend Flair</h1>
        
         <div class="section-intro d-lg-flex">
             <p class="msg-intro">
@@ -81,11 +92,9 @@ h1 {
     font-size: 1.8rem;
     text-align: center;
     z-index: 200;
+    font-size: 2rem;
 }
 
-.txt-heading {
-    white-space: pre-wrap;
-}
 .section-intro{
     text-align: center;
     margin-bottom: 400px;
@@ -155,7 +164,6 @@ h1 {
     background: rgba(70, 123, 139, 0.50);
     filter: blur(100px);
     transform: translateZ(0);
-
 }
 
 h2 {
@@ -164,6 +172,10 @@ h2 {
 }
 
 @media (min-width: 600px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
     @-webkit-keyframes bgEffect {
         0%   {background: rgba(36, 30, 108, 0.50); width:20rem; height:20rem;}
         25%  {background: rgba(70, 123, 139, 0.50); width:22rem; height:22rem;}
@@ -189,6 +201,7 @@ h2 {
         animation-duration: 5s;
         animation-iteration-count: infinite;
     }
+
     .circle2 {
         top: 10%;
         right: 10%;
@@ -209,34 +222,22 @@ h2 {
         display: none;
     }
 
-
     h1 {
+        vertical-align: center;
         font-size: 5.5rem;
         line-height: 120%;
-        position: relative;
-        top: 0px;
+        color: white; /* Element is white */
+        mix-blend-mode: difference;
+        top: -120px;
     }
 
-    h1::after {
-        content: attr(data-text);
+    .circle {
+        width: 200px;
+        height: 200px;
+        background: white;
+        border-radius: 50%;
         position: absolute;
-        top: 0px;
-        left: 0px;
-        color: red;
-        clip-path: url(#clip);
-        z-index: 5;
-        justify-content: center;    
-    }
-
-    svg {
-        position: fixed;
-        top: -50;
-        left: -50;
-    }
-
-    #svg {
-        position: relative;
-        z-index: 2;
+        z-index: 3;
     }
 
     .section-intro {
@@ -251,7 +252,12 @@ h2 {
             font-size: 24px;
         } 
     }
-
-
+    .fade-out-element {
+        /* Add any necessary styles here */
+        transition: opacity 0.5s;
+    }
+    .faded {
+        opacity: 0;
+    }
 }
 </style>

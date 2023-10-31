@@ -143,7 +143,6 @@
         <swiper-slide class="slides"> 
             <v-card
                 color="#141414"
-                
             >
                 <v-img
                 class="align-end text-white banner-img"
@@ -202,11 +201,9 @@
 .swiper-slide-active {
     .v-card {
         opacity: 1;
-
         height: 560px;
         -webkit-filter: none; /* Safari 6.0 - 9.0 */
         filter: none;
-    
     }
 }
 
@@ -215,4 +212,20 @@
         background-color: red !important;
     }
 }
+
+@media (min-width: 763px) {
+    .slides {
+        width: 400px;
+    }
+
+    .swiper-slide-visible{
+        .v-card { 
+            .v-img {
+                width: 400px;
+                height: 304px;
+            }
+        }
+    }
+}
+
 </style>

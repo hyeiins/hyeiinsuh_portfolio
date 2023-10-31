@@ -76,6 +76,7 @@
 </template>
   
 <style scoped lang="scss">
+
 .mobile-nav {
 	background-color: #141414;
 

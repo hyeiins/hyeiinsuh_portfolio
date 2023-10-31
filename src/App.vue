@@ -40,7 +40,9 @@ body{
 	}
 
 	header {
+		z-index: 9999;
 		margin-bottom: 150px;
+
 	}
 
 	main {
@@ -51,6 +53,7 @@ body{
 		position: absolute;
 		bottom: 0;
 		width: 100%;
+		z-index: 9999;
 	}
 }
 </style>
