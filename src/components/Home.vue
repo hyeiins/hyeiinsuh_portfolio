@@ -229,6 +229,7 @@ h2 {
         color: white; /* Element is white */
         mix-blend-mode: difference;
         top: -120px;
+        cursor: default;
     }
 
     .circle {
@@ -238,6 +239,7 @@ h2 {
         border-radius: 50%;
         position: absolute;
         z-index: 3;
+        
     }
 
     .section-intro {
