@@ -13,23 +13,23 @@ export default {
             xp: 0,
             yp: 0,
             isFaded: false,
+            isDesktop: window.innerWidth >= 1024,
         }
     },
     computed: {
         circleStyle() {
-        return {
-            left: this.xp + "px",
-            top: this.yp + "px",
-        };
+            console.log("fired")
+            return {
+                left: this.xp + "px",
+                top: this.yp + "px",
+            };
         },
     },
     mounted() {
+        document.addEventListener("mousemove", this.handleMouseMove);
         window.setInterval(() => {
             this.pollMsg();
         }, 3000);
-    },
-    mounted() {
-        document.addEventListener("mousemove", this.handleMouseMove);
     },
     methods: {
         pollMsg() {
@@ -57,9 +57,11 @@ export default {
 
 <template>
     <div>
-        <div class="circle fade-out-element" :style="circleStyle"  :class="{ 'faded': isFaded }"></div>
+        <header>
+            <!-- @TODO Excessive mousemove, leave, and enter event on tablet and mobile screen -->
+        <div class="circle fade-out-element d-none d-md-block" :style="circleStyle"  :class="{ 'faded': isFaded }" ></div>
         <h1  @mousemove="handleMouseMove" @mouseleave="mouseLeave" @mouseenter="mouseEnter" class="txt-heading">HYEI-IN, <br> UIUX Designer <br> with a Frontend Flair</h1>
-       
+    </header>
         <div class="section-intro d-lg-flex">
             <p class="msg-intro">
                 Seemlessly switch between
@@ -241,22 +243,21 @@ h2 {
         z-index: 3;
         box-shadow:
         0 0 40px rgba(139, 70, 103, 0.50),
-        
         0 0 60px rgba(139, 70, 103, 0.50);
         animation: pulse 2s infinite;
     }
 
-    @-webkit-keyframes @keyframes pulse {
-    0% {
-        transform: scale(1);
+    @-webkit-keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
-    50% {
-        transform: scale(1.5);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
 
     .section-intro {
         justify-content: center;
@@ -270,10 +271,12 @@ h2 {
             font-size: 24px;
         } 
     }
+
     .fade-out-element {
         /* Add any necessary styles here */
         transition: opacity 0.5s;
     }
+
     .faded {
         opacity: 0;
     }
