@@ -185,8 +185,8 @@ h2 {
     }
 
     @-webkit-keyframes bgEffect2 {
-        0%    {background: rgba(139, 70, 103, 0.50); width:22rem; height:22rem;}
-        25%    {background: rgba(70, 123, 139, 0.50); width:20rem; height:20rem;}
+        0%   {background: rgba(139, 70, 103, 0.50); width:22rem; height:22rem;}
+        25%  {background: rgba(70, 123, 139, 0.50); width:20rem; height:20rem;}
         50% {background: rgba(139, 70, 103, 0.50); width:23rem; height:23rem;}
         75% {background: rgba(70, 123, 139, 0.50); width:19rem; height:19rem;}  
         100% {background: rgba(139, 70, 103, 0.50); width:21rem; height:21rem;}
@@ -239,8 +239,24 @@ h2 {
         border-radius: 50%;
         position: absolute;
         z-index: 3;
+        box-shadow:
+        0 0 40px rgba(139, 70, 103, 0.50),
         
+        0 0 60px rgba(139, 70, 103, 0.50);
+        animation: pulse 2s infinite;
     }
+
+    @-webkit-keyframes @keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
     .section-intro {
         justify-content: center;
